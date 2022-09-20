@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+    <main class="container">
+        <p>Post detail page!!!</p>
+            {{ blogpost.author }}<br>
+            {{ blogpost.publication_date_time }}<br>
+            {{ blogpost.text }}<hr>
+    </main>
+
+
+{% endblock content %}

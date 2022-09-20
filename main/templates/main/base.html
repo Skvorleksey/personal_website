@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'main/images/icon.ico' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+    <header class="header">
+        <a class="header__link" href="{% url 'main:index' %}">Главная</a>
+        <a class="header__link" href="{% url 'main:cv' %}">Моё резюме</a>
+        <a class="header__link" href="{% url 'main:interaction' %}">Портфолио</a>
+    </header>
+    {% block content %} {% endblock content %}
+
+    <footer>
+        <p class="phone_number">+7 (916) 842-99-32</p>
+        <p class="email"><a href="mailto:skvorleksey@gmail.com">skvorleksey@gmail.com</a></p>
+    </footer>
+</body>
+</html>

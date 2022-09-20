@@ -1,0 +1,17 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+    <main class="container">
+        <p>Создать новое напоминание</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Send message</button>
+        </form>
+        * Из-за проблем с настройкой DKIM-записи могут быть проблемы с отправкой на адреса gmail.com.
+    </main>
+
+
+{% endblock content %}

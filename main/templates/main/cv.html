@@ -1,0 +1,123 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+    <main class="container">
+        <h1 class="title">Python backend разработчик (Django)</h1>
+        <div class="common_info">
+            <div class="common_info__main">
+                <p class="name">Скворцов Алексей Сергеевич</p>
+                <p class="age">24 года</p>
+                <p class="city">Москва</p>
+                <div class="contact">
+                    <h3>Контакты</h3>
+                    <p class="phone_number">+7 (916) 842-99-32</p>
+                    <p class="email"><a href="mailto:skvorleksey@gmail.com">skvorleksey@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="common_info__photo">
+                <img class="cv_photo" src="{% static 'main/images/photo.jpg' %}">
+            </div>
+        </div>
+        <hr>
+
+        <div class="about_me">
+            <h2 class="about_me__header">Обо мне</h2>
+            <p>
+                Опыт программирования более двух лет. Умею создавать веб-проекты и разворачивать их на серверах.
+                Интересны направления компьютерных сетей, бэкенд разработки и десктоп приложений.<br>
+                Умею верстать, имею опыт настройки и администрирования linux серверов.<br>
+                За время работы на фрилансе получил опыт общения с заказчиками.
+            </p>
+        </div>
+
+        <div class="work_experience">
+            <h2 class="work_experience__header">Опыт работы</h2>
+            {% for job in jobs %}
+            <div class="work_experience__block">
+                <div class="period">
+                    {{ job.start }} — <br> {{ job.get_finish_date }}
+                </div>
+                <div class="about_job">
+                    <h3 class="work_experience__company_name">{{ job.company_name }}</h3>
+                    <p class="about_job__position">{{ job.position }}</p>
+                    <p class="about_job__duties">{{ job.job_duties }}</p>
+                </div>
+
+            </div>
+
+
+
+
+            {% endfor %}
+            <div class="work_experience__block">
+                <div class="period">
+                    Июль 2020 — <br> по настоящее время
+                </div>
+                <div class="about_job">
+                    <h3 class="work_experience__company_name">Фриланс</h3>
+                    <p class="about_job__duties">
+                        Во время работы на фрилансе реализовал функции для взаимодействия с сервисом gooddata.com через API:<br>
+                        - получение токенов авторизации;<br>
+                        - создание и загрузка новых датасетов;<br>
+                        - просмотр и редактирование уже созданных датасетов;<br>
+                    </p>
+                    <hr>
+                    <p class="about_job__duties">
+                        Реализовал функции взаимодействия с сервисами google:<br>
+                        Yotube:<br>
+                        - получение информации о плейлистах;<br>
+                        - получение информации о конкретных видео и ссылок на них;<br>
+                        GoogleSheets:<br>
+                        - получение информации из таблиц;<br>
+                    </p>
+                    <hr>
+                    <p class="about_job__duties">
+                        Помогал студентам TalTech с освоением программы курса python и подготовкой к экзамену:<br>
+                        - базовые возможности языка;<br>
+                        - базовые алгоритмы;<br>
+                        - написание тестов;<br>
+                        - библиотека requests;<br>
+                        - ООП;<br>
+                    </p>
+                    <hr>
+                    <p class="about_job__duties">
+                        Был ментором для прохождения курса codeby.net "Python для Пентестера".
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="work_experience__block">
+                <div class="period">
+                    ноябрь 2020 г. — <br> январь 2021 г.
+                </div>
+                <div class="about_job">
+                    <h3 class="work_experience__company_name">Hunter corp</h3>
+                    <p class="about_job__position">Преподаватель на курсах по программированию для HR</p>
+                    <p class="about_job__duties">Проверка домашних занятий, code review. Помощь с освоение пройденных тем. Ответы на вопросы учеников.<br>
+                        Курс "Python для HR-специалистов"<br>
+                        На курсе изучались:<br>
+                        - основы синтаксиса python<br>
+                        - работа с библиотеками requests, bs4<br>
+                        - создание telegram ботов<br>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="skills">
+            <h2 class="skills__header">Навыки</h2>
+            {% for skill in skills %}
+                <p class="skills__skill_name">{{ skill.name }}</p>
+            {% endfor %}
+        </div>
+
+        <p>Английский язык — B2</p>
+
+    </main>
+
+    
+{% endblock content %}

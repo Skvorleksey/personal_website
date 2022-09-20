@@ -1,0 +1,39 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+    <main class="container">
+
+        <div class="user_block content_block--flex">
+            <a class="avatar" href="{% url 'users:user_detail' user.id %}">
+                    <img class="avatar_img" src="{{user.photo.url}}">
+            </a>
+            <div>
+                <h2>{{user.username}}</h2>
+
+                {% if user.hobby %}
+                    <p>Хобби: {{user.hobby}}</p>
+                {% endif %}
+
+                {% if user.company %}
+                    <p>Место работы: {{user.company}}</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="posts">
+            Посты пользователя:
+            {% for post in posts %}
+            <div class="content_block">
+                <p class="pub_datetime">{{post.publication_date_time}}</p>
+                <p>{{post.text}}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </main>
+
+
+{% endblock content %}

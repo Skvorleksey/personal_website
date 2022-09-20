@@ -1,0 +1,63 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+    <main class="container">
+        <div>
+            <h1>Форма регистрации</h1>
+            <div class="project_info">
+                <p>Создана кастомная модель пользователя.</p>
+                <p>Добавлены дополнительные поля и фото профиля, но они не обязательны.</p>
+                <p>Для простоты регистрации отключены стандартные валидаторы паролей, добавлен один кастомный.</p>
+                <p>После регистрации информацию о пользователе можно будет изменить по ссылке ниже.</p>
+            </div>
+            {% if user.is_authenticated  %}
+                <a href="{% url 'users:logout' %}">Выйти</a><br>
+                <a href="{% url 'users:update' %}">Редактировать профиль</a><br>
+            {% else %}
+                <a href="{% url 'users:sign_up' %}">Зарегистрироваться</a><br>
+                <a href="{% url 'users:login' %}">Авторизоваться</a><br>
+            {% endif %}
+            <a href="{% url 'users:users_list' %}">Все пользователи</a>
+        </div>
+        <hr>
+        <div>
+            <h1>Блог</h1>
+            <div class="project_info">
+                <p>
+                    Реализован функционал блога. Зарегистрированные пользователи могут создавать посты,
+                    и редактировать их.
+                </p>
+            </div>
+            <a href="{% url 'blog:posts' %}">Все посты</a>
+            <a href="{% url 'blog:create_post' %}">Создать пост</a>
+        </div>
+        <hr>
+        <div>
+            <h1>API</h1>
+            <div class="project_info">
+                <p>С помощью django rest framework создан API для проекта. По ссылке ниже можно посмотреть документацию</p>
+            </div>
+            <a href="{% url 'schema-swagger-ui' %}">Swagger API</a>
+        </div>
+        <hr>
+
+        <div>
+            <h1>Сервис напоминаний</h1>
+            <div class="project_info">
+                <p>
+                    Зарегистрированные пользователи могут указать свой адрес электронной почты, дату и время в которые
+                    они хотят получить напоминание от вервиса.<br>
+                    Установлен и настроен SMTP сервер postfix. Добавлена DNS MX запись.<br>
+                    Настроен Celery. В качестве брокера сообщений установлен Redis.
+                </p>
+            </div>
+            <a href="{% url 'mail_app:send_mail' %}">Создать напоминание</a>
+        </div>
+        <hr>
+
+    </main>
+
+    
+{% endblock content %}

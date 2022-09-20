@@ -1,0 +1,47 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+    <main class="container">
+        <p>
+            Привет! Меня зовут Алексей Скворцов.<br>
+            Ищу работу в качестве python бэкенд разработчика.<br>
+            <a href="{% url 'main:cv' %}">Резюме</a>
+            <a href="{% url 'main:interaction' %}">Портфолио</a>
+        </p>
+        <div style="width: 100%">
+            <img style="width: 100%" src="{% static 'main/images/photo_2022-07-19_15-45-28.jpg' %}">
+        </div>
+        <div class="tool_icons">
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/Python_logo.webp' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/Django_logo.png' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/drf_logo.png' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/Postgresql_elephant.png' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/gunicorn.svg' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/nginx.png' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/celery.png' %}">
+            </div>
+            <div class="tool_icon">
+                <img src="{% static 'main/images/logos/redis.png' %}">
+            </div>
+
+        </div>
+
+    </main>
+
+    
+{% endblock content %}
